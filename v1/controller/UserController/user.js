@@ -72,7 +72,7 @@ module.exports.getUsers = async (req,res, next) => {
 
 module.exports.updateUser = async (req,res, next) => {
     try {
-        await validate.validateUpdate.validateAsync(req.body);
+        await validate.validateId.validateAsync(req.body);
         const user = await User.findById(req.params.id);
         if (!user) {
             throw new Error("User not found!");
